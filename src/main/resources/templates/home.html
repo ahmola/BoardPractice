@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board</title>
+</head>
+<body>
+
+<h2>Board</h2>
+
+<div th:each="post : ${posts}">
+    <div>
+        <p th:text="${post.message}"></p>
+        <p>Likes: <span th:text="${post.likes}"></span></p>
+        <ul>
+            <li th:each="comment : ${post.comments}" th:text="${comment}"></li>
+        </ul>
+        <button th:onclick="'likePost(\'' + ${post.message} + '\')'">Like</button>
+        <input type="text" placeholder="Add a comment..." th:placeholder="Add a comment...">
+        <button th:onclick="'addComment(\'' + ${post.message} + '\', this.previousElementSibling.value)'">Add Comment</button>
+    </div>
+    <hr>
+</div>
+
+<script th:inline="javascript">
+        /* Thymeleaf inline JavaScript functions */
+        function likePost(message) {
+            // Implement your logic to handle post likes
+            alert('Liked post: ' + message);
+        }
+
+        function addComment(message, comment) {
+            // Implement your logic to add comments
+            alert('Added comment to post ' + message + ': ' + comment);
+        }
+    </script>
+
+</body>
+</html>
