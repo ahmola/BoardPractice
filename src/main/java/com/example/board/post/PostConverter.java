@@ -49,6 +49,8 @@ public class PostConverter {
             comment.setPost(post);
             comment.setComment(com);
             comment.setUsername(postDTO.getUsername());
+
+            comments.add(comment);
         }
         post.setComment(comments);
 
