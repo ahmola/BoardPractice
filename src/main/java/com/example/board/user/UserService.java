@@ -16,6 +16,10 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
+    public User findByUsername(String username){
+        return userRepository.findByUsername(username).get();
+    }
+
     public User save(UserDTO userDTO){
         User user = new User(userDTO);
         user.setPassword(passwordEncoder.encode(user.getPassword()));

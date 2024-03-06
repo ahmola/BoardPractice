@@ -11,28 +11,29 @@
 
 <div th:each="post : ${posts}">
     <div>
-        <p th:text="${post.message}"></p>
+        <h3 th:text="${post.postName}"></h3>
+        <p th:text="${post.content}"></p>
         <p>Likes: <span th:text="${post.likes}"></span></p>
         <ul>
             <li th:each="comment : ${post.comments}" th:text="${comment}"></li>
         </ul>
-        <button th:onclick="'likePost(\'' + ${post.message} + '\')'">Like</button>
+        <button th:onclick="'likePost(\'' + ${post.content} + '\')'">Like</button>
         <input type="text" placeholder="Add a comment..." th:placeholder="Add a comment...">
-        <button th:onclick="'addComment(\'' + ${post.message} + '\', this.previousElementSibling.value)'">Add Comment</button>
+        <button th:onclick="'addComment(\'' + ${post.content} + '\', this.previousElementSibling.value)'">Add Comment</button>
     </div>
     <hr>
 </div>
 
 <script th:inline="javascript">
         /* Thymeleaf inline JavaScript functions */
-        function likePost(message) {
+        function likePost(content) {
             // Implement your logic to handle post likes
-            alert('Liked post: ' + message);
+            alert('Liked post: ' + content);
         }
 
-        function addComment(message, comment) {
+        function addComment(content, comment) {
             // Implement your logic to add comments
-            alert('Added comment to post ' + message + ': ' + comment);
+            alert('Added comment to post ' + content + ': ' + comment);
         }
     </script>
 

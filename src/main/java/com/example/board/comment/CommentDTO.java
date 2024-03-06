@@ -1,22 +1,19 @@
-package com.example.board.post;
+package com.example.board.comment;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
-public class PostDTO {
+public class CommentDTO {
+
+    private String username;
+
+    private String comment;
 
     private String postName;
-    private String content;
-    private Integer likes;
-    private String username;
-    private List<String> comments;
-
 }
