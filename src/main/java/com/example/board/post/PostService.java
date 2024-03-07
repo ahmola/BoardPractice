@@ -10,4 +10,8 @@ import org.springframework.stereotype.Service;
 public class PostService {
 
     private final PostRepository postRepository;
+
+    public Post save(Post post){
+        return postRepository.save(post);
+    }
 }

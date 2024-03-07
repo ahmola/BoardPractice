@@ -8,18 +8,21 @@
 <body>
 
 <h2>Board</h2>
+<form action="/upload" method="get">
+    <button type="submit">Write</button>
+</form>
 
 <div th:each="post : ${posts}">
     <div>
-        <h3 th:text="${post.postName}"></h3>
-        <p th:text="${post.content}"></p>
-        <p>Likes: <span th:text="${post.likes}"></span></p>
+        <h3 th:text="${post.postName}">Title</h3>
+        <p th:text="${post.content}">Content</p>
+        <p>Likes: <span th:text="${post.likes}">0</span></p>
         <ul>
             <li th:each="comment : ${post.comments}" th:text="${comment}"></li>
         </ul>
-        <button th:onclick="'likePost(\'' + ${post.content} + '\')'">Like</button>
-        <input type="text" placeholder="Add a comment..." th:placeholder="Add a comment...">
-        <button th:onclick="'addComment(\'' + ${post.content} + '\', this.previousElementSibling.value)'">Add Comment</button>
+        <button th:onclick="'likePost(\'' + ${post.likes} + '\')'">Like</button>
+<!--        <input type="text" placeholder="Add a comment..." th:placeholder="Add a comment...">-->
+<!--        <button th:onclick="'addComment(\'' + ${post.comments} + '\', this.previousElementSibling.value)'">Add Comment</button>-->
     </div>
     <hr>
 </div>

@@ -39,8 +39,9 @@ public class SecurityConfig {
         return http
                 .csrf().disable()
                 .authorizeHttpRequests( auth -> {
-                    auth.requestMatchers("/home").authenticated();
-                    auth.anyRequest().permitAll();
+                    auth.requestMatchers("/login").permitAll();
+                    auth.requestMatchers("/register").permitAll() ;
+                    auth.anyRequest().authenticated();
                 })
                 .formLogin()
                 .loginPage("/login")

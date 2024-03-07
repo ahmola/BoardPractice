@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+</head>
+<body>
+
+<h2>Create a Post</h2>
+
+<form th:action="@{/upload}" method="post" th:object="${postDTO}">
+    <!-- Message Input -->
+    <label for="postName">Title:</label>
+    <textarea id="postName" name="postName" th:field="*{postName}" required></textarea>
+
+    <br>
+
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" th:field="*{content}" required></textarea>
+
+    <br>
+
+    <!-- Submit Button -->
+    <button type="submit">Create Post</button>
+</form>
+
+</body>
+</html>
